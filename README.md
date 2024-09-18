@@ -1,2 +1,2 @@
-# statistics
-Repository for various statistical analysis in R
+# Statistics
+Repository for various mathematical & statistical analyses in R.
