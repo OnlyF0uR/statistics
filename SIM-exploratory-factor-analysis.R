@@ -7,11 +7,6 @@ set.seed(123)
 # Number of respondents
 n <- 200
 
-# Correlation matrix between the two underlying dimensions (Confidence and Attractiveness)
-cor_matrix <- matrix(c(1, 0.5,   # Confidence correlated with itself and Attractiveness (moderate correlation)
-                       0.5, 1),  # Attractiveness correlated with itself and Confidence
-                     nrow = 2)
-
 # Define loadings for the 10 questions on the two dimensions (Confidence and Attractiveness)
 loadings <- matrix(c(0.8, 0.3,   # Q1 loads highly on Confidence, slightly on Attractiveness
                      0.7, 0.2,   # Q2 similarly loads more on Confidence
@@ -24,6 +19,11 @@ loadings <- matrix(c(0.8, 0.3,   # Q1 loads highly on Confidence, slightly on At
                      0.1, 0.9,   # Q9 loads highly on Attractiveness
                      0.25, 0.75  # Q10 loads moderately on Attractiveness
 ), nrow = 10, byrow = TRUE)
+
+# Correlation matrix between the two underlying dimensions (Confidence and Attractiveness)
+cor_matrix <- matrix(c(1, 0.5,   # Confidence correlated with itself and Attractiveness (moderate correlation)
+                       0.5, 1),  # Attractiveness correlated with itself and Confidence
+                     nrow = 2)
 
 # Generate latent factor scores for Confidence and Attractiveness
 latent_factors <- mvrnorm(n, mu = c(0, 0), Sigma = cor_matrix)
